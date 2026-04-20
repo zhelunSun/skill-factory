@@ -82,9 +82,9 @@ https://openai.com/zh-Hans-CN/index/harness-engineering/
 
 **Phase 2** — 蒸馏为 `SKILL.md`（10 大原则）+ `references/`（两份文档）。强制二次核对步骤发现了 4 处遗漏，包括"Ralph Wiggum 自我审查循环"。
 
-**Phase 3** — 独立 repo `D:/WorkBuddy/harness/`，MIT 协议，双语 README，git 打标签 `v1.2.0`，同步到 workspace。
+**Phase 3** — 独立 repo，MIT 协议，双语 README，git 打标签 `v1.2.0`，同步到 workspace。
 
-**耗时**：约 40 分钟。没有这套工厂，同样的工作之前需要一整天迭代，且仍有知识盲区。
+**耗时**：约 10 分钟。没有这套工厂，同样的工作之前需要一整天迭代，且仍有知识盲区。
 
 ---
 

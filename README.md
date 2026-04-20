@@ -69,9 +69,9 @@ https://openai.com/index/harness-engineering/
 
 **Phase 2** — Distilled into `SKILL.md` (10 principles) + `references/` (two documents). Mandatory re-read caught 4 missed concepts including the "Ralph Wiggum loop".
 
-**Phase 3** — Independent repo at `D:/WorkBuddy/harness/`, MIT license, bilingual README, git-tagged `v1.2.0`, synced to workspace.
+**Phase 3** — Independent repo, MIT license, bilingual README, git-tagged `v1.2.0`, synced to workspace.
 
-**Total time**: ~40 minutes. Without the factory, the same work took a full day of iteration and still had gaps.
+**Total time**: ~10 minutes. Without the factory, the same work took a full day of iteration and still had gaps.
 
 ---
 
