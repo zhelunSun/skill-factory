@@ -6,6 +6,25 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ---
 
+## [2.1.0] - 2026-04-20
+
+### Summary
+
+**GitHub release ready.** Full bilingual README, version management SOP, and LICENSE added.
+
+### Added
+- `LICENSE` (MIT) — required for ClawHub distribution
+- Semantic versioning guide in `SKILL.md`: MAJOR / MINOR / PATCH semantics with decision criteria
+- Commit message convention (`feat:` / `fix:` / `refactor:` / `release:`)
+- Changelog discipline rules (every release must update CHANGELOG)
+
+### Changed
+- `README.md` rewritten as bilingual (EN + ZH), "industrial revolution" analogy as lead hook
+- `SKILL.md` v2.1: extended version management section, bilingual README spec in Phase 3
+- Trigger words expanded: added `skill版本管理`, `skill如何发行`, `skill生产`, `skill自动化`
+
+---
+
 ## [2.0.0] - 2026-04-20
 
 ### Summary

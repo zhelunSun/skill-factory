@@ -1,6 +1,6 @@
 ---
 name: skill-factory
-version: "2.0"
+version: "2.1"
 description: >
   A meta-skill for creating, iterating, and publishing WorkBuddy skills from scratch.
   Use this skill when the user wants to: build a new skill from an idea or URL, upgrade
@@ -8,21 +8,24 @@ description: >
   a skill's repo structure. Triggers include: "新 skill", "做一个skill", "build a skill",
   "create skill", "skill制作", "把这个做成skill", "帮我把...打包成skill", "skill升级",
   "skill发行", "skill factory", "制造skill", "skill工厂", "skill from scratch",
-  "我有个skill想法", "skill迭代", "skill打磨", "做一个关于...的skill".
+  "我有个skill想法", "skill迭代", "skill打磨", "做一个关于...的skill",
+  "skill版本管理", "skill如何发行", "skill如何升级", "skill生产", "skill自动化".
 ---
 
 # Skill Factory — The Meta-Skill for Making Skills
 
-> "The true mark of the first industrial revolution was using machines to make machines."
-> Skill Factory is the machine that makes skills.
+> "The first industrial revolution was marked by using machines to make machines.
+> Skill Factory is the machine that makes skills."
 
 ## Purpose
 
 Skill Factory provides a **repeatable, human-AI collaborative SOP** for going from a raw idea to a polished, publishable WorkBuddy skill. It handles:
 
 - **0→1**: Rapid capture of fuzzy ideas → structured BRIEF → distilled skill
-- **1→N**: Iterating an existing skill with new sources or structure improvements
-- **N→∞**: Publishing, versioning, and ClawHub distribution
+- **1→N**: Iterating an existing skill with new sources or structural improvements
+- **N→∞**: Publishing, versioning, ClawHub distribution, and ongoing maintenance
+
+The key insight: **this is not about capability, it's about workflow.** Any Claw instance with this skill loaded can build production-quality skills — the process is the product.
 
 ---
 
@@ -98,8 +101,9 @@ Claw will immediately enter **Phase 0** — no more information needed to start.
 ```
 <skill-name>/
 ├── SKILL.md          # Entry point (triggers + workflow)
-├── README.md         # Human-facing intro (see README spec below)
+├── README.md         # Human-facing intro — bilingual (EN + ZH)
 ├── CHANGELOG.md      # Version history
+├── LICENSE           # MIT recommended
 ├── .gitignore
 └── references/       # Knowledge base
     └── *.md
@@ -111,30 +115,27 @@ For script-heavy skills, add:
     └── *.py
 ```
 
-#### Version Semantics
-
-| Version | When |
-|---------|------|
-| `v1.0.0` | First publishable version |
-| `v1.x.0` | New sources, content additions |
-| `v1.x.x` | Bug fixes, trigger word tweaks |
-| `v2.0.0` | Structural refactor or scope change |
-
-#### README Spec (Selling Points)
+#### README Spec
 
 A skill README must answer 3 questions in ≤60 seconds of reading:
 1. **What problem does it solve?** (1-2 sentences, no jargon)
 2. **What makes it better than asking without it?** (key differentiator)
 3. **How do I use it?** (one concrete example)
 
-Optional but recommended: badges (version, license), a "What's inside" file map.
+**Bilingual (EN + ZH)**: GitHub README should contain both English and Chinese sections. English first for discoverability, Chinese for depth. Suggested structure:
+
+```
+## English Section (headline + key differentiators)
+---
+## 中文说明 (详细说明 + 使用方式 + 卖点)
+```
 
 #### ClawHub Distribution
 
 When the user wants to publish to ClawHub:
 1. Ensure `SKILL.md` frontmatter has: `name`, `version`, `description`
 2. `description` must contain broad trigger phrases covering multiple phrasings
-3. Create a `LICENSE` file (MIT recommended for open skills)
+3. `LICENSE` file present (MIT recommended)
 4. Tag the release: `git tag v1.0.0 && git push --tags`
 
 #### Sync to Local Workspace
@@ -147,6 +148,56 @@ Copy-Item -Recurse -Force "D:\WorkBuddy\<skill-name>\*" "$env:USERPROFILE\.workb
 
 ---
 
+## Version Management
+
+Version semantics follow **Semantic Versioning** adapted for skills:
+
+```
+MAJOR.MINOR.PATCH
+```
+
+| Version bump | When | Example trigger |
+|---|---|---|
+| **PATCH** `x.x.1` | Typo fix, trigger word tweak, minor clarification | "修复了一个例子描述不准" |
+| **MINOR** `x.1.0` | New reference source, new phase step, extended trigger coverage | "加入 Anthropic 最新文档" |
+| **MAJOR** `2.0.0` | Scope change, structural refactor, paradigm shift | "从单文档改为多 reference 结构" |
+
+### What warrants a MAJOR bump?
+
+A MAJOR version (e.g. 1.x → 2.0) signals a **breaking change in the skill's mental model**:
+- The core SOP phases are restructured
+- The skill's scope is fundamentally redefined
+- Files are reorganized in ways that break the previous structure
+- The activation paradigm changes (e.g. from "ask anything" to "four-phase SOP")
+
+**MAJOR ≠ more content**. A skill that doubles its references but keeps the same structure is still a MINOR bump.
+
+### What warrants a MINOR bump?
+
+A MINOR version (e.g. 1.0 → 1.1 → 1.2) signals **additive improvements** that don't break the existing pattern:
+- New knowledge source added to `references/`
+- New trigger words added to frontmatter
+- New section added to SOP without restructuring existing phases
+- README improvements, badge updates
+
+### Commit message convention
+
+```
+feat: add [source] to references        → MINOR
+fix: correct [description]              → PATCH
+refactor: restructure [component]       → could be MAJOR
+release: v2.0.0 - [summary]            → tag release commits
+```
+
+### Changelog discipline
+
+Every release must update `CHANGELOG.md` with:
+- Version number + date
+- Summary sentence (1 line)
+- Added / Changed / Fixed sections
+
+---
+
 ## Skill Iteration (1→N)
 
 When upgrading an existing skill:
@@ -155,10 +206,11 @@ When upgrading an existing skill:
 2. Add new source to `references/` with dated filename (`source-YYYYMMDD.md`)
 3. Update `SKILL.md` version field and trigger words if needed
 4. Update `CHANGELOG.md`
-5. Commit with semantic message: `feat: add [source name] to references`
-6. Re-sync to local workspace
+5. Bump version (MAJOR / MINOR / PATCH per rules above)
+6. Commit with semantic message
+7. Re-sync to local workspace
 
-**Upgrade triggers**: User sends new URL, user says "skill has a gap", Claw detects missing knowledge during task.
+**Upgrade triggers**: User sends new URL, user says "skill has a gap", Claw detects missing knowledge during a task execution.
 
 ---
 
@@ -171,7 +223,8 @@ D:/WorkBuddy/
 │   ├── SKILL.md             # This file
 │   ├── README.md
 │   ├── CHANGELOG.md
-│   ├── SKILL-SOP.md         # Detailed SOP (legacy, superseded by this SKILL.md)
+│   ├── LICENSE
+│   ├── .gitignore
 │   ├── inbox/               # Raw ideas drop zone
 │   └── wip/                 # Active work-in-progress
 │       └── <skill-name>/
