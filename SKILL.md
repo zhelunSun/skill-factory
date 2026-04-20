@@ -122,13 +122,14 @@ A skill README must answer 3 questions in ≤60 seconds of reading:
 2. **What makes it better than asking without it?** (key differentiator)
 3. **How do I use it?** (one concrete example)
 
-**Bilingual (EN + ZH)**: GitHub README should contain both English and Chinese sections. English first for discoverability, Chinese for depth. Suggested structure:
+**Bilingual (EN + ZH)**: Use two separate files for maximum clarity.
 
 ```
-## English Section (headline + key differentiators)
----
-## 中文说明 (详细说明 + 使用方式 + 卖点)
+README.md       # English only — no Chinese text anywhere
+README_zh.md    # Chinese only — full detail, selling points, usage
 ```
+
+Each file includes a badge linking to the other version. This allows GitHub to render clean language-specific views and enables future ClawHub to surface the right version per locale.
 
 #### ClawHub Distribution
 

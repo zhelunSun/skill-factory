@@ -1,0 +1,15 @@
+# Skill Factory — .gitignore
+
+# Work-in-progress (personal work area, not for public)
+wip/
+
+# Raw idea inbox (personal scratch space)
+inbox/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+*.swp

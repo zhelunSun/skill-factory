@@ -6,6 +6,26 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ---
 
+## [2.2.0] - 2026-04-20
+
+### Summary
+
+**Bilingual README split + clean publish structure.**
+
+### Added
+- `README_zh.md` — dedicated Chinese README with bilingual badge linking between versions
+- `.gitignore` — excludes `inbox/` and `wip/` from public repo (personal work area)
+
+### Changed
+- `README.md` (English): completely purged of Chinese text; "Skills Built With This Factory" section replaced with a concrete end-to-end example using the `harness` skill
+- `README.md` now includes badge linking to `README_zh.md`
+- `README_zh.md` likewise links back to English version via badge
+
+### Fixed
+- SKILL.md Phase 3 bilingual spec updated: README is now two separate files, not two sections in one
+
+---
+
 ## [2.1.0] - 2026-04-20
 
 ### Summary

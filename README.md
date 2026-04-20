@@ -7,6 +7,7 @@ A **meta-skill** for WorkBuddy/Claw that automates the full lifecycle of skill c
 
 [![Version](https://img.shields.io/badge/version-2.1.0-blue.svg)](CHANGELOG.md)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![中文说明](https://img.shields.io/badge/README-中文版-orange.svg)](README_zh.md)
 
 ---
 
@@ -24,32 +25,89 @@ Most skill-making is ad hoc. Skill Factory is an **end-to-end automated SOP** th
 - **Mandatory source re-verification** — catches missed content after distillation
 - **Semantic versioning for skills** — know when to bump MAJOR vs MINOR vs PATCH
 - **Independent repo per skill** — every skill is GitHub/ClawHub-ready from day one
-- **Bilingual README standard** — skills built here are globally distributable
+- **Human-AI collaborative iteration** — not just 0→1, but 1→N ongoing improvement
 
-It's not about what Claw _can_ do — it's about turning an unbounded capability into a **reliable, high-quality pipeline**. The process is the product.
+It is not about what Claw *can* do — it is about turning an unbounded capability into a **reliable, high-quality pipeline**. The process is the product.
 
-## How to Use
+---
+
+## Quick Start
 
 Just send Claw an idea:
 
 ```
-新 skill：[name]，[1-2 sentences]，[source URL (optional)]
+New skill: [name], [1-2 sentences], [source URL (optional)]
 ```
 
-Or upgrade an existing skill:
+Or in Chinese:
 
 ```
-skill升级：[name]，[what to add]，[new source URL (optional)]
+新 skill：[名字]，[1-2句说明]，[来源链接（可选）]
 ```
 
-Claw enters Phase 0 immediately. You answer 3 questions, then the factory runs.
+Claw enters **Phase 0** immediately — no setup required.
 
-## What's Inside
+---
+
+## Example: Building the `harness` Skill
+
+Here is how Skill Factory handled a real request end-to-end:
+
+**Input** (30 seconds):
+```
+新 skill：harness，蒸馏 OpenAI 的智能体工程文章，
+https://openai.com/zh-Hans-CN/index/harness-engineering/
+```
+
+**Phase 0** — Three questions answered in one message:
+- Target: any Claw working on agent-first engineering
+- Source: OpenAI Harness Engineering blog post
+- Scope: GitHub + local workspace
+
+**Phase 1** — `web_fetch` the source, saved to `wip/harness/raw/`
+
+**Phase 2** — Distilled into `SKILL.md` (10 principles) + `references/` (two documents). Mandatory re-read caught 4 missed concepts including the "Ralph Wiggum loop".
+
+**Phase 3** — Independent repo at `D:/WorkBuddy/harness/`, MIT license, bilingual README, git-tagged `v1.2.0`.
+
+**Total time**: ~40 minutes. Without the factory, the same work took a full day of iteration and still had gaps.
+
+---
+
+## Four-Phase SOP Overview
+
+| Phase | Name | Output |
+|-------|------|--------|
+| 0 | Capture | `BRIEF.md` — locked spec |
+| 1 | Collect | `raw/` — raw source material |
+| 2 | Distill | `SKILL.md` + `references/` |
+| 3 | Publish | versioned repo, synced to workspace |
+
+Full SOP details are in [SKILL.md](SKILL.md).
+
+---
+
+## Version Management
+
+Skills use **Semantic Versioning** adapted for this format:
+
+| Bump | When |
+|------|------|
+| `PATCH` (x.x.1) | Typo fix, trigger word tweak |
+| `MINOR` (x.1.0) | New source, new section, extended triggers |
+| `MAJOR` (2.0.0) | Paradigm shift, structural refactor |
+
+**MAJOR does not mean more content** — a skill that doubles its references but keeps the same structure is still MINOR.
+
+---
+
+## Repo Structure
 
 ```
 skill-factory/
 ├── SKILL.md         # Full SOP — four phases, version management, publishing spec
-├── README.md        # This file
+├── README.md        # This file (English)
+├── README_zh.md     # Chinese version
 ├── CHANGELOG.md     # Version history
 ├── LICENSE          # MIT
 ├── inbox/           # Drop zone for raw ideas
@@ -60,63 +118,8 @@ skill-factory/
         └── draft/
 ```
 
-## Skills Built With This Factory
-
-| Skill | Version | Status |
-|-------|---------|--------|
-| [harness](../harness) | v1.2.0 | ✅ GitHub-ready |
-| [nova-reader](../nova-reader) | v1.1.0 | ✅ GitHub-ready |
-
 ---
 
----
+## License
 
-## 中文说明
-
-> **"第一次工业革命的标志，是用机器来制造机器。**
-> **Skill Factory，就是那台制造技能的机器。"**
-
-这是一个用于 WorkBuddy/Claw 的**元技能（meta-skill）**，提供从模糊想法到可发行 skill 的全链路标准化流程。
-
-### 它解决什么问题？
-
-每次制作 skill 时，常见的痛点：
-
-- 需求没说清楚就开始干，做到一半发现方向不对
-- 蒸馏完文章，发现漏了关键内容，还得回头重看
-- 文件散落各处，想发布到 GitHub 才发现结构一团糟
-- v1.0 做完了，不知道什么时候该升级，怎么管理版本
-
-Skill Factory 用**四阶段 SOP** 系统性地解决以上全部问题。
-
-### 核心差异化
-
-- **Phase 0 三问锁定** — 开工前三个问题锁死需求，防止过度工程化
-- **强制原文二次核对** — 蒸馏完必须回到原始来源比对，防止知识遗漏
-- **语义化版本管理** — 清楚区分 MAJOR（范式重构）/ MINOR（增量添加）/ PATCH（修小问题）
-- **每个 skill 独立 repo** — 从第一天起就是发行级结构
-- **双语 README 标准** — 中英双语，面向全球社区分发
-
-### 使用方式
-
-发给 Claw 一个想法即可：
-
-```
-新 skill：[名字]，[1-2句描述]，[来源链接（可选）]
-```
-
-或升级已有 skill：
-
-```
-skill升级：[名字]，[要加什么]，[新来源链接（可选）]
-```
-
-Claw 会立刻进入 Phase 0，回答 3 个问题后，流水线自动运转。
-
-### 版本历史
-
-见 [CHANGELOG.md](./CHANGELOG.md)
-
-### 开源协议
-
-MIT — 欢迎 fork、改造和贡献。
+MIT — fork it, adapt it, build your own factory.
