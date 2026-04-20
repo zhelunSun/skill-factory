@@ -2,7 +2,7 @@
 name: skill-factory
 version: "2.1"
 description: >
-  A meta-skill for creating, iterating, and publishing WorkBuddy skills from scratch.
+  A meta-skill for creating, iterating, and publishing OpenClaw skills from scratch.
   Use this skill when the user wants to: build a new skill from an idea or URL, upgrade
   an existing skill with new sources, prepare a skill for GitHub publishing, or design
   a skill's repo structure. Triggers include: "新 skill", "做一个skill", "build a skill",
@@ -19,7 +19,7 @@ description: >
 
 ## Purpose
 
-Skill Factory provides a **repeatable, human-AI collaborative SOP** for going from a raw idea to a polished, publishable WorkBuddy skill. It handles:
+Skill Factory provides a **repeatable, human-AI collaborative SOP** for going from a raw idea to a polished, publishable OpenClaw skill. It handles:
 
 - **0→1**: Rapid capture of fuzzy ideas → structured BRIEF → distilled skill
 - **1→N**: Iterating an existing skill with new sources or structural improvements

@@ -1,9 +1,9 @@
 # Skill Factory
 
-> **"第一次工业革命的标志，是用机器来制造机器。**
+> **"第一次工业革命结束的标志，是用机器来制造机器。**
 > **Skill Factory，就是那台制造技能的机器。"**
 
-这是一个用于 WorkBuddy/Claw 的**元技能（meta-skill）**，将 skill 的创作过程——从一句模糊的想法，到打磨完毕、版本清晰、可直接发行的成品——变成一套可重复执行的标准化流程。
+这是一个用于 OpenClaw 的**元技能（meta-skill）**，将 skill 的创作过程——从一句模糊的想法，到打磨完毕、版本清晰、可直接发行的成品——变成一套可重复执行的标准化流程。
 
 [![Version](https://img.shields.io/badge/version-2.1.0-blue.svg)](CHANGELOG.md)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
@@ -28,11 +28,18 @@ Skill Factory 用**四阶段 SOP** 系统性地解决以上全部问题。
 
 市面上的 skill 制作多是随兴而为。Skill Factory 的不同之处：
 
-- **Phase 0 三问锁定**：开工前三个问题锁死需求，防止过度工程化
+**基础层** — 开工前锁定范围：
+- **Phase 0 三问锁定**：三个问题锁死需求，防止过度工程化
+
+**质量层** — 确保知识完整：
 - **强制原文二次核对**：蒸馏完必须回到原始来源比对，防止知识遗漏
-- **语义化版本管理**：清楚区分 MAJOR（范式重构）/ MINOR（增量添加）/ PATCH（修小问题）
+
+**结构层** — 发行级从第一天开始：
 - **每个 skill 独立 repo**：从第一天起就是发行级结构，随时可 push 到 GitHub
-- **持续迭代机制**：不只是 0→1，更有 1→N 的升级路径和人机协作改进流程
+- **语义化版本管理**：清楚区分 MAJOR（范式重构）/ MINOR（增量添加）/ PATCH（修小问题）
+
+**演进层** — 不只是 0→1，更是 1→N：
+- **持续迭代机制**：有明确的升级路径和人机协作改进流程
 
 关键在于：**这不是关于 Claw 能做什么，而是关于如何把无边界的能力，变成高质量、可重复的流水线。流程本身就是产品。**
 
@@ -75,7 +82,7 @@ https://openai.com/zh-Hans-CN/index/harness-engineering/
 
 **Phase 2** — 蒸馏为 `SKILL.md`（10 大原则）+ `references/`（两份文档）。强制二次核对步骤发现了 4 处遗漏，包括"Ralph Wiggum 自我审查循环"。
 
-**Phase 3** — 独立 repo `D:/WorkBuddy/harness/`，MIT 协议，双语 README，git 打标签 `v1.2.0`。
+**Phase 3** — 独立 repo `D:/WorkBuddy/harness/`，MIT 协议，双语 README，git 打标签 `v1.2.0`，同步到 workspace。
 
 **耗时**：约 40 分钟。没有这套工厂，同样的工作之前需要一整天迭代，且仍有知识盲区。
 

@@ -1,9 +1,9 @@
 # Skill Factory
 
-> **"The first industrial revolution was marked by using machines to make machines."**
-> **Skill Factory is the machine that makes skills.**
+> **"The first industrial revolution ended when machines began building machines."**
+> **Skill Factory is the machine that builds skills.**
 
-A **meta-skill** for WorkBuddy/Claw that automates the full lifecycle of skill creation — from a fuzzy idea to a polished, versioned, distributable package.
+A **meta-skill** for OpenClaw that automates the full lifecycle of skill creation — from a fuzzy idea to a polished, versioned, distributable package.
 
 [![Version](https://img.shields.io/badge/version-2.1.0-blue.svg)](CHANGELOG.md)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
@@ -13,7 +13,7 @@ A **meta-skill** for WorkBuddy/Claw that automates the full lifecycle of skill c
 
 ## What Problem Does It Solve?
 
-Creating a WorkBuddy skill without a workflow leads to: fuzzy specs, missed knowledge during distillation, scattered files impossible to publish, and skills that stagnate at v1.0 with no clear upgrade path.
+Creating an OpenClaw skill without a workflow leads to: fuzzy specs, missed knowledge during distillation, scattered files impossible to publish, and skills that stagnate at v1.0 with no clear upgrade path.
 
 **Skill Factory solves all of this** by treating skill creation as a repeatable, improvable process — not a one-off creative act.
 
@@ -21,11 +21,18 @@ Creating a WorkBuddy skill without a workflow leads to: fuzzy specs, missed know
 
 Most skill-making is ad hoc. Skill Factory is an **end-to-end automated SOP** that any Claw instance can follow:
 
-- **Phase 0 three-question lock** — prevents scope creep before work begins
+**Foundation** — lock scope before work begins:
+- **Phase 0 three-question lock** — prevents scope creep and over-engineering
+
+**Quality** — ensure nothing is missed:
 - **Mandatory source re-verification** — catches missed content after distillation
-- **Semantic versioning for skills** — know when to bump MAJOR vs MINOR vs PATCH
+
+**Structure** — ship-ready from day one:
 - **Independent repo per skill** — every skill is GitHub/ClawHub-ready from day one
-- **Human-AI collaborative iteration** — not just 0→1, but 1→N ongoing improvement
+- **Semantic versioning for skills** — clear rules for MAJOR vs MINOR vs PATCH
+
+**Evolution** — not just 0→1, but 1→N:
+- **Human-AI collaborative iteration** — ongoing improvement with versioned upgrades
 
 It is not about what Claw *can* do — it is about turning an unbounded capability into a **reliable, high-quality pipeline**. The process is the product.
 
@@ -39,12 +46,6 @@ Just send Claw an idea:
 New skill: [name], [1-2 sentences], [source URL (optional)]
 ```
 
-Or in Chinese:
-
-```
-新 skill：[名字]，[1-2句说明]，[来源链接（可选）]
-```
-
 Claw enters **Phase 0** immediately — no setup required.
 
 ---
@@ -55,8 +56,8 @@ Here is how Skill Factory handled a real request end-to-end:
 
 **Input** (30 seconds):
 ```
-新 skill：harness，蒸馏 OpenAI 的智能体工程文章，
-https://openai.com/zh-Hans-CN/index/harness-engineering/
+New skill: harness, distill OpenAI's agent engineering article,
+https://openai.com/index/harness-engineering/
 ```
 
 **Phase 0** — Three questions answered in one message:
@@ -68,7 +69,7 @@ https://openai.com/zh-Hans-CN/index/harness-engineering/
 
 **Phase 2** — Distilled into `SKILL.md` (10 principles) + `references/` (two documents). Mandatory re-read caught 4 missed concepts including the "Ralph Wiggum loop".
 
-**Phase 3** — Independent repo at `D:/WorkBuddy/harness/`, MIT license, bilingual README, git-tagged `v1.2.0`.
+**Phase 3** — Independent repo at `D:/WorkBuddy/harness/`, MIT license, bilingual README, git-tagged `v1.2.0`, synced to workspace.
 
 **Total time**: ~40 minutes. Without the factory, the same work took a full day of iteration and still had gaps.
 
