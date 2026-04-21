@@ -145,23 +145,17 @@ claw skill install skillfactory
 或使用完整标识符：
 
 ```bash
-claw skill install github.com/PandaBro666/skillfactory
+claw skill install github.com/zhelunSun/skill-factory
 ```
 
 ### 手动安装
 
 1. 克隆仓库到技能目录：
 ```bash
-git clone https://github.com/PandaBro666/skillfactory.git ~/.workbuddy/skills/skillfactory
+git clone https://github.com/zhelunSun/skill-factory.git ~/.workbuddy/skills/skillfactory
 ```
 
 2. 重启 Claw 会话 —— 技能将自动加载。
-
----
-
-## 标签
-
-`#元技能` `#skill制作` `#OpenClaw` `#智能体工程` `#工作流自动化` `#知识蒸馏`
 
 ---
 

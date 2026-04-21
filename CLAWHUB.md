@@ -57,7 +57,7 @@ New skill: prompt-engineering, best practices from Anthropic and OpenAI
 
 ## Links
 
-- **Repository:** https://github.com/PandaBro666/skillfactory
+- **Repository:** https://github.com/zhelunSun/skill-factory
 - **English README:** [README.md](README.md)
 - **中文说明:** [README_zh.md](README_zh.md)
 - **Changelog:** [CHANGELOG.md](CHANGELOG.md)
