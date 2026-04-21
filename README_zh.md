@@ -152,7 +152,7 @@ claw skill install github.com/zhelunSun/skill-factory
 
 1. 克隆仓库到技能目录：
 ```bash
-git clone https://github.com/zhelunSun/skill-factory.git ~/.workbuddy/skills/skillfactory
+git clone https://github.com/zhelunSun/skill-factory.git ~/.claw/skills/skillfactory
 ```
 
 2. 重启 Claw 会话 —— 技能将自动加载。
