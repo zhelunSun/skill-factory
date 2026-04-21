@@ -121,6 +121,37 @@ skill-factory/
 
 ---
 
+## Installation
+
+### From ClawHub (Recommended)
+
+```bash
+claw skill install skillfactory
+```
+
+Or use the full identifier:
+
+```bash
+claw skill install github.com/PandaBro666/skillfactory
+```
+
+### Manual Installation
+
+1. Clone this repo to your skills directory:
+```bash
+git clone https://github.com/PandaBro666/skillfactory.git ~/.workbuddy/skills/skillfactory
+```
+
+2. Restart your Claw session — the skill will auto-load.
+
+---
+
+## Tags
+
+`#meta-skill` `#skill-authoring` `#openclaw` `#agent-engineering` `#workflow-automation` `#knowledge-distillation`
+
+---
+
 ## License
 
 MIT — fork it, adapt it, build your own factory.

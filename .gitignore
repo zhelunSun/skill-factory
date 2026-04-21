@@ -6,6 +6,9 @@ wip/
 # Raw idea inbox (personal scratch space)
 inbox/
 
+# Promotional materials (not part of core skill)
+promo/
+
 # OS
 .DS_Store
 Thumbs.db

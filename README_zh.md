@@ -1,7 +1,7 @@
 # Skill Factory
 
 > **"第一次工业革命结束的标志，是用机器来制造机器。**
-> **Skill Factory，就是那台制造技能的机器。"**
+> **Skill Factory，就是那台制造skill的机器。"**
 
 这是一个用于 OpenClaw 的**元技能（meta-skill）**，将 skill 的创作过程——从一句模糊的想法，到打磨完毕、版本清晰、可直接发行的成品——变成一套可重复执行的标准化流程。
 
@@ -131,6 +131,37 @@ skill-factory/
         ├── raw/
         └── draft/
 ```
+
+---
+
+## 安装方法
+
+### 通过 ClawHub 安装（推荐）
+
+```bash
+claw skill install skillfactory
+```
+
+或使用完整标识符：
+
+```bash
+claw skill install github.com/PandaBro666/skillfactory
+```
+
+### 手动安装
+
+1. 克隆仓库到技能目录：
+```bash
+git clone https://github.com/PandaBro666/skillfactory.git ~/.workbuddy/skills/skillfactory
+```
+
+2. 重启 Claw 会话 —— 技能将自动加载。
+
+---
+
+## 标签
+
+`#元技能` `#skill制作` `#OpenClaw` `#智能体工程` `#工作流自动化` `#知识蒸馏`
 
 ---
 
