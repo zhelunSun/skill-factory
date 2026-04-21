@@ -33,14 +33,16 @@ The key insight: **this is not about capability, it's about workflow.** Any Claw
 
 Just say something like:
 
-> `新 skill：[名字或主题]，[1-2句说明]，[来源URL（可选）]`
+> `New skill: [name], [1-2 sentences], [source URL (optional)]`
 
 Examples:
-- `新 skill：prompt-engineering，整合 Anthropic 和 OpenAI 的提示词实践`
-- `新 skill：git-workflow，规范我的 git 分支和 PR 流程，https://...`
-- `skill升级：nova-reader，加入 Semantic Scholar 数据源`
+- `New skill: prompt-engineering, best practices from Anthropic and OpenAI`
+- `New skill: git-workflow, standardize my branching and PR flow, https://...`
+- `Skill upgrade: nova-reader, add Semantic Scholar data source`
 
 Claw will immediately enter **Phase 0** — no more information needed to start.
+
+**中文用户**: `新 skill：[名字]，[1-2句说明]，[来源URL（可选）]`
 
 ---
 
