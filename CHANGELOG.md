@@ -6,6 +6,30 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ---
 
+## [2.2.1] - 2026-04-21
+
+### Summary
+
+**ClawHub distribution ready + clean publish structure.**
+
+### Added
+- `README.md`: ClawHub installation instructions (`claw skill install skillfactory`)
+- `README_zh.md`: 中文安装说明
+- `README.md` & `README_zh.md`: Tags section for discoverability
+- `CLAWHUB.md`: Dedicated ClawHub listing page with one-line pitch
+- `PUBLISH.md`: Release command reference for future updates
+
+### Changed
+- Slug finalized: `skillfactory` (GitHub: PandaBro666/skillfactory)
+- `.gitignore` updated: excludes `inbox/`, `wip/`, `promo/` from public repo
+
+### Notes
+- Minimum ClawHub requirement: `SKILL.md` only
+- Recommended: `SKILL.md` + `README.md` + `LICENSE` for professional presentation
+- Clean publish workflow: copy core files to separate directory to avoid uploading WIP content
+
+---
+
 ## [2.2.0] - 2026-04-20
 
 ### Summary
