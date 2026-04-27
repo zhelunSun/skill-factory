@@ -1,6 +1,6 @@
 ---
 name: skill-factory
-version: "2.2.1"
+version: "2.2.2"
 description: >
   A meta-skill for creating, iterating, and publishing OpenClaw skills from scratch.
   Use this skill when the user wants to: build a new skill from an idea or URL, upgrade

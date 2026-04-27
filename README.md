@@ -5,7 +5,7 @@
 
 A **meta-skill** for OpenClaw that automates the full lifecycle of skill creation — from a fuzzy idea to a polished, versioned, distributable package.
 
-[![Version](https://img.shields.io/badge/version-2.2.1-blue.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-2.2.2-blue.svg)](CHANGELOG.md)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![中文说明](https://img.shields.io/badge/README-中文版-orange.svg)](README_zh.md)
 

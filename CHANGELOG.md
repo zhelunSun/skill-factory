@@ -6,6 +6,22 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ---
 
+## [2.2.2] - 2026-04-27
+
+### Summary
+
+**Version sync: local repo aligned with ClawHub v2.2.2 release.**
+
+### Changed
+- `SKILL.md`: version field updated to `2.2.2`
+- `README.md` / `README_zh.md`: version badges updated to `2.2.2`
+
+### Notes
+- ClawHub listing had advanced to v2.2.2; this commit brings the GitHub repo in sync
+- Submitted false-positive appeal to openclaw/clawhub for suspicious flag on this skill
+
+---
+
 ## [2.2.1] - 2026-04-21
 
 ### Summary
