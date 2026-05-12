@@ -70,7 +70,7 @@ Claw 会立刻进入 Phase 0，回答 3 个问题后，流水线自动运转。
 **用户输入**（30秒）：
 ```
 新 skill：harness，蒸馏 OpenAI 的智能体工程文章，
-https://openai.com/zh-Hans-CN/index/harness-engineering/
+https://openai.com/index/harness-engineering/
 ```
 
 **Phase 0** — 三问一轮解决：
@@ -152,7 +152,7 @@ claw skill install github.com/zhelunSun/skill-factory
 
 1. 克隆仓库到技能目录：
 ```bash
-git clone https://github.com/zhelunSun/skill-factory.git ~/.claw/skills/skillfactory
+git clone https://github.com/zhelunSun/skill-factory.git ~/.workbuddy/skills/skillfactory
 ```
 
 2. 重启 Claw 会话 —— 技能将自动加载。

@@ -326,7 +326,7 @@ The legacy iteration path is preserved for quick edits. For structured upgrades,
 
 When doing a quick upgrade:
 
-1. Create a new branch or directly update `D:/WorkBuddy/<skill-name>/`
+1. Create a new branch or directly update `D:/Agent/WorkBuddy/skills/<skill-name>/`
 2. Add new source to `references/` with dated filename (`source-YYYYMMDD.md`)
 3. Update `SKILL.md` version field and trigger words if needed
 4. Update `CHANGELOG.md`
@@ -342,13 +342,16 @@ When doing a quick upgrade:
 
 ```
 D:/WorkBuddy/
-├── .workspace-index.md      # Master skill status board
+└── .workspace-index.md      # Master skill status board
+
+D:/Agent/WorkBuddy/skills/
 ├── skill-factory/           # This meta-skill repo
 │   ├── SKILL.md             # This file
 │   ├── README.md
 │   ├── CHANGELOG.md
 │   ├── LICENSE
 │   ├── .gitignore
+│   ├── CLAWHUB.md
 │   ├── inbox/               # Raw ideas drop zone
 │   └── wip/                 # Active work-in-progress
 │       └── <skill-name>/

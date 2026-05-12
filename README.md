@@ -158,7 +158,7 @@ claw skill install github.com/zhelunSun/skill-factory
 
 1. Clone this repo to your skills directory:
 ```bash
-git clone https://github.com/zhelunSun/skill-factory.git ~/.claw/skills/skillfactory
+git clone https://github.com/zhelunSun/skill-factory.git ~/.workbuddy/skills/skillfactory
 ```
 
 2. Restart your Claw session — the skill will auto-load.

@@ -2,7 +2,7 @@
 
 **Slug:** `skillfactory`  
 **Display Name:** Skill Factory  
-**Version:** 2.1.0  
+**Version:** 2.3.0  
 **License:** MIT  
 **Author:** PandaBro666
 
@@ -22,6 +22,7 @@ Skill Factory is a **meta-skill** that automates the full lifecycle of skill cre
 - **Phase 1:** Collect raw sources automatically
 - **Phase 2:** Distill into structured SKILL.md + references
 - **Phase 3:** Publish as versioned, standalone repo
+- **Upgrade Workflow:** Inspect → Classify → Propose → Apply → Summary (1→N)
 
 From fuzzy idea → GitHub-ready skill in ~10 minutes.
 

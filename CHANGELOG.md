@@ -8,7 +8,13 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## [Unreleased]
 
-No unreleased changes yet.
+### Fixed
+- CLAWHUB.md version updated from v2.1.0 to v2.3.0 (was out of sync)
+- SKILL.md Workspace Layout: corrected `D:/WorkBuddy/` → `D:/Agent/WorkBuddy/skills/` for skill repo paths
+- SKILL.md Legacy section: `D:/WorkBuddy/<skill-name>/` → `D:/Agent/WorkBuddy/skills/<skill-name>/`
+- README_zh.md: OpenAI URL changed from Chinese-localized to canonical English URL
+- README.md / README_zh.md: manual install path from `~/.claw/skills/` → `~/.workbuddy/skills/`
+- .workspace-index.md: directory structure comment updated from v2.2.0 to v2.3.0
 
 ---
 
