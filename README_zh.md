@@ -5,7 +5,7 @@
 
 这是一个用于 OpenClaw 的**元技能（meta-skill）**，将 skill 的创作过程——从一句模糊的想法，到打磨完毕、版本清晰、可直接发行的成品——变成一套可重复执行的标准化流程。
 
-[![Version](https://img.shields.io/badge/version-2.2.2-blue.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-2.3.0-blue.svg)](CHANGELOG.md)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![English README](https://img.shields.io/badge/README-English-blue.svg)](README.md)
 

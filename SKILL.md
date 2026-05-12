@@ -1,6 +1,6 @@
 ---
 name: skill-factory
-version: "2.2.2"
+version: "2.3.0"
 description: >
   A meta-skill for creating, iterating, and publishing OpenClaw skills from scratch.
   Use this skill when the user wants to: build a new skill from an idea or URL, upgrade
@@ -9,7 +9,9 @@ description: >
   "create skill", "skill制作", "把这个做成skill", "帮我把...打包成skill", "skill升级",
   "skill发行", "skill factory", "制造skill", "skill工厂", "skill from scratch",
   "我有个skill想法", "skill迭代", "skill打磨", "做一个关于...的skill",
-  "skill版本管理", "skill如何发行", "skill如何升级", "skill生产", "skill自动化".
+  "skill版本管理", "skill如何发行", "skill如何升级", "skill生产", "skill自动化",
+  "更新skill", "升级skill", "维护skill", "升级已有skill", "upgrade skill",
+  "update skill", "维护现有skill", "skill版本升级", "skill生命周期".
 ---
 
 # Skill Factory — The Meta-Skill for Making Skills
@@ -34,15 +36,21 @@ The key insight: **this is not about capability, it's about workflow.** Any Claw
 Just say something like:
 
 > `New skill: [name], [1-2 sentences], [source URL (optional)]`
+> `Upgrade skill: [skill name/path], [change request], [new source URL (optional)]`
 
-Examples:
+### New skill examples:
 - `New skill: prompt-engineering, best practices from Anthropic and OpenAI`
 - `New skill: git-workflow, standardize my branching and PR flow, https://...`
-- `Skill upgrade: nova-reader, add Semantic Scholar data source`
+- `新 skill：简历筛选，用关键词匹配和语义分析筛选简历`
 
-Claw will immediately enter **Phase 0** — no more information needed to start.
+### Upgrade skill examples:
+- `Upgrade skill: nova-reader, add Semantic Scholar data source`
+- `Upgrade skill: harness, strengthen governance rules from Phase 3.5 lessons`
+- `升级 skill：skill-factory，增加显式升级模式`
 
-**中文用户**: `新 skill：[名字]，[1-2句说明]，[来源URL（可选）]`
+Claw will enter **Phase 0** for new skills or the **Upgrade Workflow** for existing skills — no more information needed to start.
+
+**中文用户**: `新 skill：[名字]，[1-2句说明]，[来源URL（可选）]` for new; `升级 skill：[skill名字/路径]，[变更要求]，[新来源URL（可选）]` for upgrades.
 
 ---
 
@@ -146,7 +154,110 @@ When the user wants to publish to ClawHub:
 After publishing, sync to `~/.workbuddy/skills/<skill-name>/` so Claw can use it immediately:
 
 ```powershell
-Copy-Item -Recurse -Force "D:\WorkBuddy\<skill-name>\*" "$env:USERPROFILE\.workbuddy\skills\<skill-name>\"
+Copy-Item -Recurse -Force "D:\Agent\WorkBuddy\skills\<skill-name>\*" "$env:USERPROFILE\.workbuddy\skills\<skill-name>\"
+```
+
+---
+
+## Upgrade Workflow (1→N Maintenance)
+
+**Goal**: Update an existing skill without starting from scratch.
+
+This is a **first-class workflow**, distinct from creating a new skill. When the user invokes `Upgrade skill:`, follow these steps:
+
+### Step 1 · Inspect (read existing state)
+
+1. Read the existing skill repo:
+   - `SKILL.md` — current version, triggers, workflow
+   - `CHANGELOG.md` — version history (especially recent entries)
+   - `README.md` — public description
+   - `references/` — existing knowledge base
+   - Git log — recent changes and commit history
+2. Identify the current version (from `SKILL.md` frontmatter or git tag)
+
+### Step 2 · Classify the change
+
+Compare the requested change against the skill's **public API** — its documented behavior:
+
+| Public API element | Examples |
+|-------------------|----------|
+| Use cases | What scenarios the skill serves |
+| Input format | What the user says to trigger the skill |
+| Output format | What files/code the skill produces |
+| Workflow phases | The SOP structure |
+| Safety boundaries | What the agent must not do |
+| File structure | Repo layout conventions |
+| Publishing behavior | How the skill is distributed |
+
+Determine the version bump:
+
+| Bump | When | Examples |
+|------|------|----------|
+| **PATCH** `x.x.1` | Fixes that don't change behavior | Typo fix, clarification, trigger word tweak |
+| **MINOR** `x.1.0` | Backward-compatible additions | New workflow mode, new reference source, optional publishing path |
+| **MAJOR** `x.0.0` | Breaking changes | Changed triggering format, restructured SOP, removed phase, changed safety assumptions |
+
+### Step 3 · Propose (generate upgrade plan)
+
+Before making any changes, produce an upgrade plan:
+
+```markdown
+## Upgrade Plan
+
+Current version: <version from SKILL.md>
+Proposed version: <computed bump>
+Change type: PATCH / MINOR / MAJOR
+
+Reason:
+<why this change belongs in this category>
+
+Files to modify:
+<list of files that need changes>
+
+Risk level: low / medium / high
+Backward compatibility: yes / no
+
+Proposed changelog entry:
+### Added
+- <new features>
+
+### Changed
+- <behavior changes>
+
+### Fixed
+- <bug fixes>
+
+Suggested commit message:
+<semantic commit message>
+
+Suggested tag:
+v<new version>
+```
+
+Present this plan to the user. Do not apply changes until the user confirms.
+
+### Step 4 · Apply
+
+After user confirmation:
+
+1. Update files (SKILL.md, README, CHANGELOG, references)
+2. Bump version in SKILL.md frontmatter and README badges
+3. Update `CHANGELOG.md` with proper format (see below)
+4. Commit with semantic message
+5. Tag the release: `git tag v<new-version> && git push --tags`
+6. Re-sync to local workspace
+
+### Step 5 · Upgrade Summary
+
+After applying, produce a summary:
+
+```
+## Upgrade Complete
+
+<old version> → <new version>
+Files changed: <list>
+Changelog: <link or excerpt>
+Next steps: <optional>
 ```
 
 ---
@@ -194,16 +305,26 @@ release: v2.0.0 - [summary]            → tag release commits
 
 ### Changelog discipline
 
+Format: [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
+
 Every release must update `CHANGELOG.md` with:
-- Version number + date
-- Summary sentence (1 line)
-- Added / Changed / Fixed sections
+- `[Unreleased]` section at the top (collects next-version changes)
+- Version section for each release: `[X.Y.Z] — YYYY-MM-DD`
+- Grouped changes under: **Added**, **Changed**, **Fixed**, **Deprecated**, **Removed**, **Security**
+- User-readable summaries, not raw git diffs
+- A single-line **Summary** at the top of each version
+
+The `[Unreleased]` section captures changes that will go into the next release. Before cutting a new version, review `[Unreleased]`, classify entries, and move them into the version section.
+
+**Distinction**: git history = developer log; CHANGELOG = user-facing narrative. Do not substitute one for the other.
 
 ---
 
-## Skill Iteration (1→N)
+## Skill Iteration (Legacy — use Upgrade Workflow above)
 
-When upgrading an existing skill:
+The legacy iteration path is preserved for quick edits. For structured upgrades, use the **Upgrade Workflow** (produces planned changes and version bump).
+
+When doing a quick upgrade:
 
 1. Create a new branch or directly update `D:/WorkBuddy/<skill-name>/`
 2. Add new source to `references/` with dated filename (`source-YYYYMMDD.md`)

@@ -5,7 +5,7 @@
 
 A **meta-skill** for OpenClaw that automates the full lifecycle of skill creation — from a fuzzy idea to a polished, versioned, distributable package.
 
-[![Version](https://img.shields.io/badge/version-2.2.2-blue.svg)](CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-2.3.0-blue.svg)](CHANGELOG.md)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![中文说明](https://img.shields.io/badge/README-中文版-orange.svg)](README_zh.md)
 
@@ -99,6 +99,25 @@ Skills use **Semantic Versioning** adapted for this format:
 | `MAJOR` (2.0.0) | Paradigm shift, structural refactor |
 
 **MAJOR does not mean more content** — a skill that doubles its references but keeps the same structure is still MINOR.
+
+---
+
+## Maintaining Existing Skills (1→N)
+
+Skill Factory is not only a 0→1 generator. It also supports **structured upgrades** to existing skills:
+
+```
+Upgrade skill: [skill name/path], [change request], [new source URL (optional)]
+```
+
+The upgrade workflow:
+1. **Inspect** — reads the existing repo state
+2. **Classify** — determines a PATCH/MINOR/MAJOR bump
+3. **Propose** — generates an upgrade plan before making changes
+4. **Apply** — updates files, CHANGELOG, version
+5. **Summary** — reports what changed
+
+This ensures v2, v3, and v4 are as disciplined as v1. Git versioning, semantic versioning, CHANGELOG discipline, and the upgrade plan work together to prevent skill degradation over time.
 
 ---
 

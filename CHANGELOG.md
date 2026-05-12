@@ -6,7 +6,38 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ---
 
-## [2.2.2] - 2026-04-27
+## [Unreleased]
+
+No unreleased changes yet.
+
+---
+
+## [2.3.0] — 2026-05-12
+
+### Summary
+
+**First-class upgrade workflow for existing skills.** Skill Factory now explicitly supports 1→N maintenance alongside 0→1 creation.
+
+### Added
+- `Upgrade skill:` as a first-class entry point alongside `New skill:`
+- Upgrade Workflow section in SKILL.md: Inspect → Classify → Propose → Apply → Summary
+- Version bump decision framework: skill's "public API" defined (use cases, input/output, workflow phases, safety boundaries, file structure)
+- Upgrade plan template: current version, proposed version, change type, files to modify, risk level, changelog entry, commit message, tag
+- Enhanced trigger words covering upgrade and maintenance scenarios
+
+### Changed
+- SKILL.md: `[Unreleased]` section added to CHANGELOG guidance per Keep a Changelog standard
+- CHANGELOG discipline: now requires grouped changes (Added / Changed / Fixed / Deprecated / Removed / Security) and user-readable summaries
+- README.md: added "Maintaining Existing Skills (1→N)" section
+- README_zh.md: updated quick start with skill upgrade example
+- Legacy "Skill Iteration" section renamed to "Skill Iteration (Legacy)" with redirect to Upgrade Workflow
+
+### Fixed
+- Workspace layout path in SKILL.md now consistent with actual directory structure
+
+---
+
+## [2.2.2] — 2026-04-27
 
 ### Summary
 
@@ -22,7 +53,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ---
 
-## [2.2.1] - 2026-04-21
+## [2.2.1] — 2026-04-21
 
 ### Summary
 
@@ -46,7 +77,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ---
 
-## [2.2.0] - 2026-04-20
+## [2.2.0] — 2026-04-20
 
 ### Summary
 
@@ -66,7 +97,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ---
 
-## [2.1.0] - 2026-04-20
+## [2.1.0] — 2026-04-20
 
 ### Summary
 
@@ -85,7 +116,7 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ---
 
-## [2.0.0] - 2026-04-20
+## [2.0.0] — 2026-04-20
 
 ### Summary
 
@@ -107,7 +138,7 @@ Skill Factory is now itself a publishable WorkBuddy skill. v2.0 restructures the
 
 ---
 
-## [1.0.0] - 2026-04-18
+## [1.0.0] — 2026-04-18
 
 ### Summary
 
