@@ -2,12 +2,14 @@
 name: skill-factory
 version: "2.3.0"
 description: >
-  A meta-skill for creating, iterating, and publishing OpenClaw skills from scratch.
-  Use this skill when the user wants to: build a new skill from an idea or URL, upgrade
-  an existing skill with new sources, prepare a skill for GitHub publishing, or design
-  a skill's repo structure. Triggers include: "新 skill", "做一个skill", "build a skill",
-  "create skill", "skill制作", "把这个做成skill", "帮我把...打包成skill", "skill升级",
-  "skill发行", "skill factory", "制造skill", "skill工厂", "skill from scratch",
+  Turn any idea into a polished, versioned, publishable OpenClaw skill — no
+  scaffolding, no guesswork. Just say "新 skill" or "build a skill" and Skill
+  Factory handles the rest: captures the spec, collects sources, distills
+  knowledge, and packages it into a GitHub-ready repo. Also supports upgrading
+  existing skills with "升级 skill" or "upgrade skill". Built for makers who
+  want quality without reinventing the process. Triggers: "新 skill", "做一个skill",
+  "build a skill", "create skill", "skill制作", "把这个做成skill", "帮我把...打包成skill",
+  "skill升级", "skill发行", "skill factory", "制造skill", "skill工厂", "skill from scratch",
   "我有个skill想法", "skill迭代", "skill打磨", "做一个关于...的skill",
   "skill版本管理", "skill如何发行", "skill如何升级", "skill生产", "skill自动化",
   "更新skill", "升级skill", "维护skill", "升级已有skill", "upgrade skill",
