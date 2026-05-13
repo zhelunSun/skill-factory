@@ -1,6 +1,6 @@
 ---
 name: skill-factory
-version: "2.3.0"
+version: "2.4.0"
 description: >
   Turn any idea into a polished, versioned, publishable OpenClaw skill — no
   scaffolding, no guesswork. Just say "新 skill" or "build a skill" and Skill
@@ -150,6 +150,61 @@ When the user wants to publish to ClawHub:
 2. `description` must contain broad trigger phrases covering multiple phrasings
 3. `LICENSE` file present (MIT recommended)
 4. Tag the release: `git tag v1.0.0 && git push --tags`
+
+#### ClawHub CLI Publishing (实操工作流)
+
+When the skill is already published and needs a version update on ClawHub, use the `clawhub` CLI:
+
+**Prerequisites:**
+- Node.js environment with clawhub package installed:
+  ```
+  npm install clawhub
+  ```
+- ClawHub account with device flow login (headless-friendly):
+  ```
+  clawhub login --device
+  # Visit the provided URL, enter the code, authorize in browser
+  # Note: login process must stay running in background while user authorizes
+  ```
+
+**Publish update workflow:**
+```bash
+# 1. Push latest commit to GitHub first
+git push origin main
+
+# 2. Tag the release
+git tag v<new-version>
+git push --tags
+
+# 3. Publish to ClawHub
+clawhub skill publish <repo-path> --slug <slug> --version <new-version> --changelog "<summary>"
+
+# 4. Verify
+clawhub inspect <slug>
+
+# 5. Sync to local workspace
+Copy-Item -Recurse -Force "D:\Agent\WorkBuddy\skills\<skill-name>\*" "$env:USERPROFILE\.workbuddy\skills\<skill-name>\"
+```
+
+**Protocol: GitHub first, ClawHub second.** Always push to GitHub before publishing to ClawHub. This ensures the source code is available for moderation review and users can link back to the repo.
+
+**Windows + Proxy note:** Use HTTPS remote (not SSH) on Windows environments with proxy/VPN. SSH port 22 may be intercepted by proxy tools (Clash/V2Ray). Configure:
+```
+git remote set-url origin https://github.com/<owner>/<repo>.git
+```
+
+**Limitation:** ClawHub Summary is derived from SKILL.md frontmatter `description` field. To update the summary, edit `description` in SKILL.md and republish.
+
+#### Auto-Sync Automation (Optional)
+
+A local workbuddy automation can periodically check and sync all skills:
+
+```yaml
+# One-time manual: for each repo, push + publish + sync
+# Or set a weekly cron via workbuddy automation
+```
+
+See `automation` system in WorkBuddy for setting up recurring sync tasks.
 
 #### Sync to Local Workspace
 
@@ -376,3 +431,6 @@ D:/Agent/WorkBuddy/skills/
 | LRN-002 | Skill evolved in workspace, hard to publish as standalone | Phase 3 independent repo |
 | LRN-003 | Over-engineered before confirming real need | Phase 0 three-question lock |
 | LRN-004 | Research notes mixed with skill docs | `raw/` vs `references/` separation |
+| LRN-005 | ClawHub login needs background process to wait for user auth | Device Flow requires staying alive |
+| LRN-006 | Git push blocked by proxy/VPN (SSH 22) on Windows | Use HTTPS + PAT, configure remote |
+| LRN-007 | Requirement creep during simple tasks | Core first, periphery later |

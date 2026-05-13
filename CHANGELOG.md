@@ -8,6 +8,25 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## [Unreleased]
 
+No unreleased changes yet.
+
+---
+
+## [2.4.0] — 2026-05-13
+
+### Summary
+
+**End-to-end ClawHub CLI publishing workflow.** Phase 3 now includes a full, battle-tested SOP for publishing skill updates to ClawHub via CLI — covering login, publish, verify, and local sync. Lessons from earlier failures (proxy issues, requirement creep, device flow) are captured.
+
+### Added
+- Phase 3 → ClawHub CLI Publishing: device flow login, publish command, verify, local sync steps
+- Phase 3 → Windows proxy notes: HTTPS vs SSH guidance
+- Lessons Learned table: LRN-005 (ClawHub device flow background), LRN-006 (SSH/proxy), LRN-007 (requirement creep)
+
+### Changed
+- SKILL.md version bumped from v2.3.0 to v2.4.0
+- README.md / README_zh.md version badges updated to v2.4.0
+
 ### Fixed
 - CLAWHUB.md version updated from v2.1.0 to v2.3.0 (was out of sync)
 - SKILL.md Workspace Layout: corrected `D:/WorkBuddy/` → `D:/Agent/WorkBuddy/skills/` for skill repo paths
@@ -15,8 +34,6 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - README_zh.md: OpenAI URL changed from Chinese-localized to canonical English URL
 - README.md / README_zh.md: manual install path from `~/.claw/skills/` → `~/.workbuddy/skills/`
 - .workspace-index.md: directory structure comment updated from v2.2.0 to v2.3.0
-
----
 
 ## [2.3.0] — 2026-05-12
 
