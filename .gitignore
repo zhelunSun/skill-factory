@@ -13,6 +13,12 @@ promo/
 .DS_Store
 Thumbs.db
 
+# WorkBuddy internal
+.workbuddy/
+
 # Editor
 .vscode/
 *.swp
+
+# WorkBuddy session data
+.workbuddy/
