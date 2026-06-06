@@ -1,6 +1,6 @@
 ---
 name: skill-factory
-version: "2.4.0"
+version: "2.5.0"
 description: >
   Turn any idea into a polished, versioned, publishable OpenClaw skill — no
   scaffolding, no guesswork. Just say "新 skill" or "build a skill" and Skill
@@ -146,10 +146,28 @@ Each file includes a badge linking to the other version. This allows GitHub to r
 #### ClawHub Distribution
 
 When the user wants to publish to ClawHub:
+
+**Pre-Publish Validation (MANDATORY — LRN-008):**
+
+1. **Slug consistency check**: Before publishing, verify the `--slug` matches the EXISTING slug if this is an update. Check the previous publish slug from:
+   - `~/.workbuddy/skills/<name>/.clawhub/origin.json` (local cache)
+   - Or search ClawHub: `clawhub search <name>` to list existing entries
+   - **CRITICAL**: ClawHub treats different slugs as different skills. A slug change (e.g., `research-harness` to `Research Harness`) creates a DUPLICATE entry. If the skill already exists on ClawHub, reuse the exact same slug.
+   - **Rule**: Never change the slug for an existing skill. If the name in SKILL.md frontmatter changes, the slug must still match the original.
+
+2. **Duplicate detection**: After confirming the slug, search ClawHub for similar names to ensure no near-duplicates will be created.
+
+**Publish steps:**
 1. Ensure `SKILL.md` frontmatter has: `name`, `version`, `description`
 2. `description` must contain broad trigger phrases covering multiple phrasings
 3. `LICENSE` file present (MIT recommended)
 4. Tag the release: `git tag v1.0.0 && git push --tags`
+
+**Post-Publish Verification (MANDATORY)**: After publishing, run these checks:
+- `clawhub inspect <slug>` — verify version, description, and metadata match expectations
+- **Count check**: Verify only ONE entry exists for this skill on ClawHub dashboard. If you see two entries with similar names, a duplicate was created — stop and fix immediately.
+- **Sync check**: Copy updated files to `~/.workbuddy/skills/<name>/` and verify SKILL.md version matches
+- **Red flags to watch**: (a) wrong version number shown (b) duplicate entries (c) missing description/summary (d) wrong slug/name
 
 #### ClawHub CLI Publishing (实操工作流)
 

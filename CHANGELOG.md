@@ -8,7 +8,20 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 
 ## [Unreleased]
 
-No unreleased changes yet.
+## [2.5.0] — 2026-06-06
+
+### Summary
+
+**Caveman-style README revamp.** Before/After on first screen, factory output showcase, quick install at top. Inspired by Caveman's "product = demo" philosophy — README now demonstrates Skill Factory's value rather than describing it.
+
+### Changed
+- `README.md`: restructured — Before/After contrast first, factory output matrix, simplified SOP table
+- `README_zh.md`: synced structure, Chinese before/after example
+- Version badge bumped to 2.5.0
+
+### Removed
+- Verbose "What Problem Does It Solve?" section → replaced by Before/After table
+- Detailed harness-only example → replaced by Factory Output matrix (harness + nova-reader)
 
 ---
 
